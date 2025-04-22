@@ -1,0 +1,24 @@
+/* Font definitions */
+@font-face {
+  font-family: 'Allust';
+  src: url('./fonts/Allust-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monologue';
+  src: url('./fonts/Monologue.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monologue Rounded';
+  src: url('./fonts/Monologue Rounded.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

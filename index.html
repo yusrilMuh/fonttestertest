@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tadi Font Tester</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fonts.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- Main container -->
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="logo-container">
+          <img src="Tadi Logo.png" alt="Tadi Logo" class="logo">
+        </div>
+        <a href="#" id="buyButton" class="buy-button" target="_blank" rel="noopener noreferrer">
+          Buy Font
+        </a>
+      </header>
+
+      <!-- Main content -->
+      <main class="main-content">
+        <!-- Font Controls (Sidebar) -->
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-content">
+            <div class="controls-container">
+              <!-- Font Name -->
+              <div class="control-group">
+                <select id="fontName" class="select-input">
+                  <!-- Options will be added via JavaScript -->
+                </select>
+              </div>
+
+              <!-- Font Style -->
+              <div class="control-group">
+                <select id="fontStyle" class="select-input">
+                  <!-- Options will be added via JavaScript -->
+                </select>
+              </div>
+
+              <!-- Font Size -->
+              <div class="control-group">
+                <div class="control-header">
+                  <label for="fontSize">Size</label>
+                  <span id="fontSizeValue">72px</span>
+                </div>
+                <input type="range" id="fontSize" min="8" max="144" value="72" class="slider">
+              </div>
+
+              <!-- Line Height -->
+              <div class="control-group">
+                <div class="control-header">
+                  <label for="lineHeight">Line height</label>
+                  <span id="lineHeightValue">1.5</span>
+                </div>
+                <input type="range" id="lineHeight" min="0.8" max="3" step="0.1" value="1.5" class="slider">
+              </div>
+
+              <!-- Tracking -->
+              <div class="control-group">
+                <div class="control-header">
+                  <label for="tracking">Tracking</label>
+                  <span id="trackingValue">0</span>
+                </div>
+                <input type="range" id="tracking" min="-0.1" max="0.5" step="0.01" value="0" class="slider">
+              </div>
+
+              <!-- Text Alignment -->
+              <div class="control-group">
+                <label class="control-label">Alignment</label>
+                <div class="button-group">
+                  <button id="alignLeft" class="icon-button" data-align="left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/></svg>
+                  </button>
+                  <button id="alignCenter" class="icon-button active" data-align="center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="5" y1="18" x2="19" y2="18"/></svg>
+                  </button>
+                  <button id="alignRight" class="icon-button" data-align="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="9" y1="12" x2="21" y2="12"/><line x1="6" y1="18" x2="21" y2="18"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Text Color -->
+              <div class="control-group">
+                <label class="control-label">Text Color</label>
+                <div class="color-options">
+                  <button class="color-option active" data-color="#000000" style="background-color: #000000;"></button>
+                  <button class="color-option" data-color="#DC2626" style="background-color: #DC2626;"></button>
+                  <button class="color-option" data-color="#2563EB" style="background-color: #2563EB;"></button>
+                  <button class="color-option" data-color="#16A34A" style="background-color: #16A34A;"></button>
+                  <button class="color-option" data-color="#FACC15" style="background-color: #FACC15;"></button>
+                  <button class="color-option" data-color="#A855F7" style="background-color: #A855F7;"></button>
+                </div>
+              </div>
+
+              <!-- Background Color -->
+              <div class="control-group">
+                <label class="control-label">Background Color</label>
+                <div class="color-options">
+                  <button class="bg-color-option active" data-color="#FFFFFF" style="background-color: #FFFFFF;"></button>
+                  <button class="bg-color-option" data-color="#F3F4F6" style="background-color: #F3F4F6;"></button>
+                  <button class="bg-color-option" data-color="#E5E7EB" style="background-color: #E5E7EB;"></button>
+                  <button class="bg-color-option" data-color="#FEF3C7" style="background-color: #FEF3C7;"></button>
+                  <button class="bg-color-option" data-color="#DBEAFE" style="background-color: #DBEAFE;"></button>
+                  <button class="bg-color-option" data-color="#F3E8FF" style="background-color: #F3E8FF;"></button>
+                </div>
+              </div>
+
+              <!-- Sample Text -->
+              <div class="control-group">
+                <select id="sampleText" class="select-input">
+                  <option value="pangram">The Quick Brown Fox Jumps Over...</option>
+                  <option value="lorem">Lorem ipsum dolor sit amet...</option>
+                  <option value="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ...</option>
+                  <option value="numbers">1234567890!@#$%^&*()</option>
+                </select>
+              </div>
+
+              <!-- OpenType Features -->
+              <div class="control-group">
+                <button id="openTypeToggle" class="collapsible-button">
+                  <span>OpenType Features</span>
+                  <span class="feature-count">1</span>
+                  <svg id="chevronIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div id="openTypeContent" class="collapsible-content">
+                  <!-- Text Features -->
+                  <div class="feature-section">
+                    <div class="feature-header">
+                      <span>Text Features</span>
+                    </div>
+                    <div class="feature-list" id="textFeatures">
+                      <!-- Features will be added via JavaScript -->
+                    </div>
+                  </div>
+
+                  <!-- Number Features -->
+                  <div class="feature-section">
+                    <div class="feature-header">
+                      <span>Number Features</span>
+                    </div>
+                    <div class="feature-list">
+                      <div>
+                        <span class="feature-label">Numeral Style</span>
+                        <div class="radio-group" id="numeralStyles">
+                          <!-- Radio buttons will be added via JavaScript -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Special Features -->
+                  <div class="feature-section">
+                    <div class="feature-header">
+                      <span>Special Features</span>
+                    </div>
+                    <div class="feature-list" id="specialFeatures">
+                      <!-- Features will be added via JavaScript -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Font Display Area -->
+        <section class="display-area" id="displayArea">
+          <div class="display-content" id="displayContent">
+            <!-- Text will be inserted via JavaScript -->
+          </div>
+        </section>
+      </main>
+
+      <!-- Toggle button for mobile -->
+      <button id="sidebarToggle" class="sidebar-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
