@@ -112,10 +112,13 @@ const featureCount = document.querySelector('.feature-count');
 function init() {
   populateFontSelect();
   populateStyleSelect();
+  initializeOpenTypeFeatures(); // Initialize OpenType features at startup
+  updateFeatures(); // Update feature UI
   setupEventListeners();
   updateSampleText();
   updateDisplayContent();
   updateFeatureCount();
+  updateBuyButton(); // Make sure buy button is set correctly
 }
 
 // Populate the font select dropdown
@@ -178,6 +181,20 @@ function setupEventListeners() {
   // Sidebar toggle (mobile)
   sidebarToggle.addEventListener('click', () => {
     sidebar.classList.toggle('active');
+  });
+  
+  // Close sidebar button (for mobile)
+  const closeSidebar = document.getElementById('closeSidebar');
+  if (closeSidebar) {
+    closeSidebar.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+    });
+  }
+  
+  // Listen for changes to display content when user edits directly
+  displayContent.addEventListener('input', () => {
+    // Update state with the current content
+    state.displayText = displayContent.textContent;
   });
 
   // Font name select
@@ -365,15 +382,22 @@ function updateSampleText() {
     default:
       text = 'The Quick Brown Fox Jumps\nOver The Lazy Dog';
   }
+  
+  // When a sample text is explicitly selected, we want to show it
+  // regardless of what was there before
   state.displayText = text;
+  displayContent.textContent = text;
 }
 
 // Update the display content based on current state
 function updateDisplayContent() {
-  // Set the text content
-  displayContent.textContent = state.displayText;
+  // Instead of setting textContent (which erases user edits),
+  // only set it initially if the field is empty
+  if (displayContent.textContent.trim() === '') {
+    displayContent.textContent = state.displayText;
+  }
   
-  // Update styles
+  // Update styles only
   displayContent.style.fontFamily = `"${state.fontName}", sans-serif`;
   displayContent.style.fontSize = `${state.fontSize}px`;
   displayContent.style.fontWeight = state.fontStyle === 'bold' ? 'bold' : 'normal';
@@ -392,8 +416,17 @@ function updateDisplayContent() {
 // Update the buy button URL
 function updateBuyButton() {
   const url = getBuyUrl(state.fontName);
+  
+  // Update desktop buy button
   buyButton.href = url;
   buyButton.textContent = `Buy ${state.fontName}`;
+  
+  // Update mobile buy button if it exists
+  const mobileBuyButton = document.getElementById('mobileBuyButton');
+  if (mobileBuyButton) {
+    mobileBuyButton.href = url;
+    mobileBuyButton.querySelector('span').textContent = 'Buy';
+  }
 }
 
 // Update the feature count in the OpenType toggle button
@@ -418,28 +451,30 @@ function initializeOpenTypeFeatures() {
   
   // Initialize stylistic sets object
   const stylisticSets = {};
-  availableSets.forEach(setNum => {
-    stylisticSets[setNum] = false; // All sets off by default
-  });
+  for (let i = 1; i <= 20; i++) {
+    // First check if it's in availableSets, otherwise set to false
+    stylisticSets[i] = availableSets.includes(i) ? false : false;
+  }
   
   state.openTypeFeatures = {
     // Text Features
     ligatures: availableFeatures.includes('liga'), // Only ligatures on by default
-    contextual: false,
-    discretionaryLigatures: false,
-    stylisticAlternates: false,
+    contextual: availableFeatures.includes('calt') ? false : false,
+    discretionaryLigatures: availableFeatures.includes('dlig') ? false : false,
+    stylisticAlternates: availableFeatures.includes('salt') ? false : false,
     stylisticSets: stylisticSets,
-    smallCaps: false,
-    swash: false,
+    smallCaps: availableFeatures.includes('smcp') ? false : false,
+    swash: availableFeatures.includes('swsh') ? false : false,
     
     // Number Features
     numeralStyle: 'normal',
     
     // Special Features
-    fractions: false,
-    slashedZero: false,
+    fractions: availableFeatures.includes('frac') ? false : false,
+    slashedZero: availableFeatures.includes('zero') ? false : false,
   };
   
+  // Make sure the UI is updated with these feature values
   updateFeatures();
 }
 
