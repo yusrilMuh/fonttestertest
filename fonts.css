@@ -1,7 +1,8 @@
 /* Font definitions */
 @font-face {
   font-family: 'Allust';
-  src: url('./fonts/Allust-Regular.otf') format('opentype');
+  src: url('./fonts/Allust-Regular.otf') format('opentype'),
+       url('fonts/Allust-Regular.otf') format('opentype'); /* Alternative path */
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -9,7 +10,8 @@
 
 @font-face {
   font-family: 'Monologue';
-  src: url('./fonts/Monologue.otf') format('opentype');
+  src: url('./fonts/Monologue.otf') format('opentype'),
+       url('fonts/Monologue.otf') format('opentype'); /* Alternative path */
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -17,7 +19,10 @@
 
 @font-face {
   font-family: 'Monologue Rounded';
-  src: url('./fonts/Monologue Rounded.otf') format('opentype');
+  src: url('./fonts/Monologue Rounded.otf') format('opentype'),
+       url('fonts/Monologue Rounded.otf') format('opentype'), /* Alternative path */
+       url('./fonts/Monologue%20Rounded.otf') format('opentype'), /* URL encoded path */
+       url('fonts/Monologue%20Rounded.otf') format('opentype'); /* URL encoded alternative path */
   font-weight: normal;
   font-style: normal;
   font-display: swap;

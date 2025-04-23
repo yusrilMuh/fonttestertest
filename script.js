@@ -6,6 +6,7 @@ const availableFonts = [
     styles: ['regular'],
     features: ['liga', 'dlig', 'calt', 'smcp', 'swsh', 'tnum', 'onum', 'pnum', 'frac', 'zero'],
     stylisticSets: [1, 2], // ss01, ss02
+    buyUrl: 'https://gumroad.com/l/allust'
   },
   {
     name: 'Monologue',
@@ -13,6 +14,7 @@ const availableFonts = [
     styles: ['regular'],
     features: ['liga', 'dlig', 'calt', 'smcp', 'tnum', 'onum', 'pnum', 'frac', 'zero'],
     stylisticSets: [1, 2, 3], // ss01, ss02, ss03
+    buyUrl: 'https://gumroad.com/l/monologue'
   },
   {
     name: 'Monologue Rounded',
@@ -20,19 +22,40 @@ const availableFonts = [
     styles: ['regular'],
     features: ['liga', 'dlig', 'calt', 'smcp', 'tnum', 'onum', 'pnum', 'frac', 'zero'],
     stylisticSets: [1, 2, 3], // ss01, ss02, ss03
+    buyUrl: 'https://gumroad.com/l/monologue-rounded'
   }
 ];
 
-let fontLinks = {};
+// Fallback font links if JSON loading fails
+let fontLinks = {
+  "Allust": "https://gumroad.com/l/allust",
+  "Monologue": "https://gumroad.com/l/monologue",
+  "Monologue Rounded": "https://gumroad.com/l/monologue-rounded"
+};
 
-// Load the font links data
-fetch('fontLinks.json')
-  .then(response => response.json())
-  .then(data => {
-    fontLinks = data;
-    updateBuyButton();
-  })
-  .catch(error => console.error('Error loading font links:', error));
+// Try to load the font links data, but we have a fallback
+try {
+  fetch('fontLinks.json')
+    .then(response => response.json())
+    .then(data => {
+      fontLinks = data;
+      updateBuyButton();
+    })
+    .catch(error => {
+      console.error('Error loading font links JSON, using defaults:', error);
+      updateBuyButton();
+    });
+} catch (error) {
+  console.error('Error in fetch operation, using default font links:', error);
+  updateBuyButton();
+}
+
+// Create an empty stylistic sets object
+const initialStylisticSets = {};
+// Initialize all 20 possible stylistic sets to false
+for (let i = 1; i <= 20; i++) {
+  initialStylisticSets[i] = false;
+}
 
 // State
 const state = {
@@ -50,7 +73,7 @@ const state = {
     contextual: false,
     discretionaryLigatures: false,
     stylisticAlternates: false,
-    stylisticSets: {},
+    stylisticSets: initialStylisticSets, // Initialize with all sets disabled
     smallCaps: false,
     swash: false,
     numeralStyle: 'normal',
@@ -134,7 +157,14 @@ function getAvailableFeatures(fontName) {
 
 // Get buy URL for a font
 function getBuyUrl(fontName) {
-  return fontLinks[fontName] || '#';
+  // Try to get from fontLinks first
+  if (fontLinks[fontName]) {
+    return fontLinks[fontName];
+  }
+  
+  // Fall back to the availableFonts array
+  const font = availableFonts.find(f => f.name === fontName);
+  return font && font.buyUrl ? font.buyUrl : '#';
 }
 
 // Get available stylistic sets for a font
@@ -250,11 +280,23 @@ function setupEventListeners() {
 
 // Handle feature toggle
 function handleFeatureToggle(feature) {
+  console.log(`Toggling feature: ${feature}`);
+  
   if (feature.startsWith('ss') && feature.length === 4) {
     const setNumber = parseInt(feature.substring(2), 10);
+    console.log(`Toggling stylistic set ${setNumber}`);
+    
     if (!isNaN(setNumber)) {
+      // Make sure the stylisticSets object exists
+      if (!state.openTypeFeatures.stylisticSets) {
+        state.openTypeFeatures.stylisticSets = {};
+      }
+      
       // Toggle stylistic set
-      state.openTypeFeatures.stylisticSets[setNumber] = !state.openTypeFeatures.stylisticSets[setNumber];
+      const currentValue = !!state.openTypeFeatures.stylisticSets[setNumber];
+      state.openTypeFeatures.stylisticSets[setNumber] = !currentValue;
+      
+      console.log(`Set ${setNumber} was ${currentValue}, now ${state.openTypeFeatures.stylisticSets[setNumber]}`);
     }
   } else if (feature === 'numeralStyle') {
     // Cycle through numeral styles
@@ -277,10 +319,16 @@ function handleFeatureToggle(feature) {
     }
     
     state.openTypeFeatures.numeralStyle = nextStyle;
+    console.log(`Numeral style changed to: ${nextStyle}`);
   } else {
     // Toggle boolean feature
     state.openTypeFeatures[feature] = !state.openTypeFeatures[feature];
+    console.log(`Feature ${feature} set to: ${state.openTypeFeatures[feature]}`);
   }
+  
+  // Generate CSS to check what's being applied
+  const css = generateOpenTypeCss();
+  console.log(`Generated CSS: ${css}`);
   
   updateFeatureCount();
   updateDisplayContent();
@@ -500,10 +548,19 @@ function createRadioButton(container, label, value, checked) {
 function isFeatureActive(feature) {
   if (feature.startsWith('ss') && feature.length === 4) {
     const setNumber = parseInt(feature.substring(2), 10);
-    return state.openTypeFeatures.stylisticSets[setNumber] || false;
+    
+    // Make sure stylisticSets exists
+    if (!state.openTypeFeatures.stylisticSets) {
+      state.openTypeFeatures.stylisticSets = {};
+      return false;
+    }
+    
+    // Check if the specific stylistic set is active
+    return !!state.openTypeFeatures.stylisticSets[setNumber];
   }
   
-  return state.openTypeFeatures[feature] || false;
+  // For regular features, check if they exist and are true
+  return !!state.openTypeFeatures[feature];
 }
 
 // Generate CSS for OpenType features
@@ -518,14 +575,16 @@ function generateOpenTypeCss() {
   if (state.openTypeFeatures.swash) featureSettings += '"swsh" on, ';
   
   // Stylistic Sets
-  if (state.openTypeFeatures.stylisticSets && Object.keys(state.openTypeFeatures.stylisticSets).length > 0) {
-    Object.entries(state.openTypeFeatures.stylisticSets).forEach(([setNumber, isEnabled]) => {
-      if (isEnabled) {
+  if (state.openTypeFeatures.stylisticSets) {
+    // Loop through all possible stylistic sets (1-20)
+    for (let i = 1; i <= 20; i++) {
+      if (state.openTypeFeatures.stylisticSets[i] === true) {
         // Create the ss01, ss02, etc. format with padding to ensure two digits
-        const ssCode = `ss${String(parseInt(setNumber)).padStart(2, '0')}`;
+        const ssCode = `ss${String(i).padStart(2, '0')}`;
         featureSettings += `"${ssCode}" on, `;
+        console.log(`Adding stylistic set ${i} to CSS`);
       }
-    });
+    }
   }
   
   // Number Features
