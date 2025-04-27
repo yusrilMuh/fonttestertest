@@ -1,0 +1,27 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#c9b6f2"/>
+  <text x="100" y="150" font-family="serif" font-size="36" fill="#333">
+    Light
+  </text>
+  <text x="400" y="150" font-family="serif" font-size="36" fill="#333">
+    Regular
+  </text>
+  <text x="650" y="150" font-family="serif" font-weight="bold" font-size="36" fill="#333">
+    Bold
+  </text>
+  <text x="100" y="250" font-family="serif" font-size="24" fill="#333">
+    Aa Bb Cc
+  </text>
+  <text x="400" y="250" font-family="serif" font-size="24" fill="#333">
+    Aa Bb Cc
+  </text>
+  <text x="650" y="250" font-family="serif" font-weight="bold" font-size="24" fill="#333">
+    Aa Bb Cc
+  </text>
+  <text x="400" y="400" font-family="serif" font-size="36" text-anchor="middle" fill="#333">
+    OpenType Features
+  </text>
+  <text x="400" y="450" font-family="serif" font-size="24" text-anchor="middle" fill="#333">
+    fi fl ff ffi ffl ct st
+  </text>
+</svg>

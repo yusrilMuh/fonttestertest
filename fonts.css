@@ -1,29 +1,57 @@
 /* Font definitions */
+
+/* Allust Family */
 @font-face {
-  font-family: 'Allust';
-  src: url('./fonts/Allust-Regular.otf') format('opentype'),
-       url('fonts/Allust-Regular.otf') format('opentype'); /* Alternative path */
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+     font-family: 'Allust';
+     src: url('fonts/Allust-Regular.otf') format('opentype'),
+          url('fonts/Allust-Regular.otf') format('opentype');
+     /* Alternative path */
+     font-weight: normal;
+     font-style: normal;
+     font-display: swap;
+}
+
+
+/* Monologue Family */
+@font-face {
+     font-family: 'Monologue';
+     src: url('fonts/Monologue-Regular.otf') format('opentype'),
+          url('fonts/Monologue-Regular.otf') format('opentype');
+     /* Alternative path */
+     font-weight: normal;
+     font-style: normal;
+     font-display: swap;
+}
+
+
+/* Monologue Rounded Family */
+@font-face {
+     font-family: 'Monologue Rounded';
+     src: url('fonts/Monologue-Rounded-Regular.otf') format('opentype'),
+          url('fonts/Monologue-Rounded-Regular.otf') format('opentype');
+     /* Alternative path */
+     font-weight: normal;
+     font-style: normal;
+     font-display: swap;
+}
+
+/* Maudre Family */
+@font-face {
+     font-family: 'Maudre';
+     src: url('fonts/Maudre/Maudre-Light.otf') format('opentype'),
+          url('fonts/Maudre/Maudre-Light.otf') format('opentype');
+     /* Alternative path */
+     font-weight: 300;
+     font-style: normal;
+     font-display: swap;
 }
 
 @font-face {
-  font-family: 'Monologue';
-  src: url('./fonts/Monologue.otf') format('opentype'),
-       url('fonts/Monologue.otf') format('opentype'); /* Alternative path */
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Monologue Rounded';
-  src: url('./fonts/Monologue Rounded.otf') format('opentype'),
-       url('fonts/Monologue Rounded.otf') format('opentype'), /* Alternative path */
-       url('./fonts/Monologue%20Rounded.otf') format('opentype'), /* URL encoded path */
-       url('fonts/Monologue%20Rounded.otf') format('opentype'); /* URL encoded alternative path */
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+     font-family: 'Maudre';
+     src: url('fonts/Maudre/Maudre-Black.otf') format('opentype'),
+          url('fonts/Maudre/Maudre-Black.otf') format('opentype');
+     /* Alternative path */
+     font-weight: 900;
+     font-style: normal;
+     font-display: swap;
 }

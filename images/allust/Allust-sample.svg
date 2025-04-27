@@ -1,0 +1,12 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#c9b6f2"/>
+  <text x="400" y="300" font-family="serif" font-size="72" text-anchor="middle" fill="#333">
+    Allust
+  </text>
+  <text x="400" y="370" font-family="serif" font-size="36" text-anchor="middle" fill="#333">
+    A refined serif typeface
+  </text>
+  <text x="400" y="420" font-family="serif" font-size="24" text-anchor="middle" fill="#333">
+    ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  </text>
+</svg>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Tadi Foundry</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fonts.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background-color: #f3f4f6;
+    }
+
+    .nav-link.active {
+      font-weight: 700;
+    }
+    
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      padding: 20px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .contact-heading {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .contact-subheading {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+
+    .contact-form {
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .form-label {
+      font-weight: 600;
+      font-size: 14px;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .form-input,
+    .form-textarea {
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
+    .form-textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+      font-family: 'Roboto Mono', monospace;
+      align-self: flex-start;
+    }
+
+    .submit-button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .contact-text {
+      font-size: 16px;
+    }
+
+    .required-field::after {
+      content: "*";
+      color: red;
+      margin-left: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="Tadi Logo.png" alt="Tadi Logo" class="logo" onerror="this.src='Tadi%20Logo.png'; this.onerror=null;">
+      </a>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <!-- Navigation Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-sticky-footer">
+        <button id="closeSidebar" class="close-sidebar-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          <span>Close</span>
+        </button>
+      </div>
+      <div class="sidebar-content">
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Fonts</a>
+          <a href="tester.html" class="nav-link">Font Tester</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Contact Content -->
+    <section class="display-area" id="displayArea">
+      <div class="contact-container">
+        <h1 class="contact-heading">Get in Touch</h1>
+        <p class="contact-subheading">Have questions about our fonts or interested in a custom typeface? Fill out the form below and I'll get back to you as soon as possible.</p>
+        
+        <form action="mailto:yusril@taditype.com" method="post" enctype="text/plain" class="contact-form">
+          <div class="form-group">
+            <label for="name" class="form-label required-field">Name</label>
+            <input type="text" id="name" name="name" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label required-field">Email</label>
+            <input type="email" id="email" name="email" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject" class="form-label required-field">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label required-field">Message</label>
+            <textarea id="message" name="message" class="form-textarea" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span class="contact-text">yusril@taditype.com</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile Controls -->
+  <div class="mobile-controls">
+    <button id="sidebarToggle" class="mobile-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-copyright desktop-only">
+        <p>© 2025 Tadi Foundry. All rights reserved.</p>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-link">Instagram</a>
+        <a href="#" class="social-link">Behance</a>
+        <a href="#" class="social-link">Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple script to handle mobile sidebar toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidebar = document.getElementById('sidebar');
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const closeSidebar = document.getElementById('closeSidebar');
+      
+      // Sidebar toggle (mobile)
+      sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+      });
+      
+      // Close sidebar button (for mobile)
+      if (closeSidebar) {
+        closeSidebar.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

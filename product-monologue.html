@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monologue Font - Tadi Foundry</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="product-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="Tadi Logo.png" alt="Tadi Logo" class="logo" onerror="this.src='Tadi%20Logo.png'; this.onerror=null;">
+      </a>
+    </div>
+    <div class="header-actions">
+      <a href="index.html" class="back-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <!-- Navigation Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-sticky-footer">
+        <button id="closeSidebar" class="close-sidebar-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          <span>Close</span>
+        </button>
+      </div>
+      <div class="sidebar-content">
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link active">Fonts</a>
+          <a href="tester.html" class="nav-link">Font Tester</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Product Display Area -->
+    <section class="display-area" id="displayArea">
+      <div class="product-container">
+        <!-- Carousel -->
+        <div class="carousel-container">
+          <div class="carousel-item active">
+            <img src="images/monologue/Monologue-sample.svg" alt="Monologue Font Preview 1">
+          </div>
+          <div class="carousel-item">
+            <img src="images/monologue/Monologue-sample2.svg" alt="Monologue Font Preview 2">
+          </div>
+          <div class="carousel-item">
+            <img src="images/monologue/Monologue-sample3.svg" alt="Monologue Font Preview 3">
+          </div>
+          <button class="carousel-arrow carousel-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="carousel-arrow carousel-next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          <div class="carousel-dots">
+            <span class="carousel-dot active"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+          </div>
+        </div>
+        
+        <!-- Product Info -->
+        <div class="product-info">
+          <div class="product-details">
+            <h1 class="product-title">Monologue</h1>
+            <div class="product-description">
+              <p>Monologue is a contemporary geometric sans-serif typeface with a clean, minimalist aesthetic. Designed with precision and clarity in mind, it's perfect for modern branding, user interfaces, and editorial design.</p>
+              <p>The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet while the quick brown fox jumps over the lazy dog.</p>
+              <p>Features include:</p>
+              <ul>
+                <li>Complete character set with extensive language support</li>
+                <li>6 carefully crafted weights from Thin to Black</li>
+                <li>Optimized for both display and text usage</li>
+                <li>Neutral forms with exceptional legibility</li>
+                <li>Consistent letterforms for professional typography</li>
+              </ul>
+            </div>
+          </div>
+          <div class="product-actions">
+            <a href="tester.html?font=Monologue" class="product-button test-button">Test font</a>
+            <a href="https://taditype.gumroad.com/l/monologue" target="_blank" class="product-button buy-button">Buy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile Controls -->
+  <div class="mobile-controls">
+    <button id="sidebarToggle" class="mobile-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <span>Menu</span>
+    </button>
+    <a href="https://taditype.gumroad.com/l/monologue" id="mobileBuyButton" class="mobile-button buy-mobile" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 6l4 -4m-2 4a18 18 0 1 1 -9 -4" />
+        <path d="M12 11v-8m-2.5 11.5l5 -5" />
+      </svg>
+      <span>Buy</span>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-copyright desktop-only">
+        <p>© 2025 Tadi Foundry. All rights reserved.</p>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-link">Instagram</a>
+        <a href="#" class="social-link">Behance</a>
+        <a href="#" class="social-link">Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple script to handle mobile sidebar toggle and carousel
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidebar = document.getElementById('sidebar');
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const closeSidebar = document.getElementById('closeSidebar');
+      
+      // Sidebar toggle (mobile)
+      sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+      });
+      
+      // Close sidebar button (for mobile)
+      if (closeSidebar) {
+        closeSidebar.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+        });
+      }
+      
+      // Carousel functionality
+      const carouselItems = document.querySelectorAll('.carousel-item');
+      const carouselDots = document.querySelectorAll('.carousel-dot');
+      const prevButton = document.querySelector('.carousel-prev');
+      const nextButton = document.querySelector('.carousel-next');
+      let currentIndex = 0;
+      
+      function showSlide(index) {
+        // Handle edge cases
+        if (index < 0) index = carouselItems.length - 1;
+        if (index >= carouselItems.length) index = 0;
+        
+        // Update current index
+        currentIndex = index;
+        
+        // Update classes for items and dots
+        carouselItems.forEach(item => item.classList.remove('active'));
+        carouselDots.forEach(dot => dot.classList.remove('active'));
+        
+        // Activate current item and dot
+        carouselItems[currentIndex].classList.add('active');
+        if (carouselDots[currentIndex]) {
+          carouselDots[currentIndex].classList.add('active');
+        }
+      }
+      
+      // Event listeners for navigation
+      if (prevButton) {
+        prevButton.addEventListener('click', () => {
+          showSlide(currentIndex - 1);
+        });
+      }
+      
+      if (nextButton) {
+        nextButton.addEventListener('click', () => {
+          showSlide(currentIndex + 1);
+        });
+      }
+      
+      // Add event listeners to dots
+      carouselDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showSlide(index);
+        });
+      });
+      
+      // Auto-advance the carousel every 5 seconds
+      setInterval(() => {
+        showSlide(currentIndex + 1);
+      }, 5000);
+    });
+  </script>
+</body>
+</html>

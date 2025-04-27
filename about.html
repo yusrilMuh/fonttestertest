@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Tadi Foundry</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fonts.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background-color: #f3f4f6;
+    }
+
+    .nav-link.active {
+      font-weight: 700;
+    }
+    
+    .about-container {
+      display: flex;
+      height: 100%;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 30px;
+    }
+
+    .profile-image-container {
+      flex: 0 0 300px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-content {
+      flex: 1;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      padding: 30px;
+      overflow-y: auto;
+      max-height: calc(100vh - 200px);
+    }
+
+    .profile-name {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-family: 'Roboto Mono', monospace;
+    }
+    
+    .profile-title {
+      font-size: 20px;
+      color: #666;
+      margin-bottom: 20px;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .profile-bio {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .profile-section {
+      margin-bottom: 30px;
+    }
+
+    .profile-section-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .skill-tag {
+      background-color: #ddd;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .profile-image-container {
+        flex: 0 0 auto;
+      }
+
+      .profile-image {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .profile-content {
+        max-height: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="Tadi Logo.png" alt="Tadi Logo" class="logo" onerror="this.src='Tadi%20Logo.png'; this.onerror=null;">
+      </a>
+    </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <!-- Navigation Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-sticky-footer">
+        <button id="closeSidebar" class="close-sidebar-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          <span>Close</span>
+        </button>
+      </div>
+      <div class="sidebar-content">
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Fonts</a>
+          <a href="tester.html" class="nav-link">Font Tester</a>
+          <a href="about.html" class="nav-link active">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- About Content -->
+    <section class="display-area" id="displayArea">
+      <div class="about-container">
+        <div class="profile-image-container">
+          <img src="images/profile-placeholder.svg" alt="Yusril - Type Designer" class="profile-image">
+        </div>
+        <div class="profile-content">
+          <h1 class="profile-name">Yusril</h1>
+          <h2 class="profile-title">Type Designer & Founder at Tadi Foundry</h2>
+          
+          <div class="profile-section">
+            <p class="profile-bio">Hello! I'm Yusril, a passionate type designer and the founder of Tadi Foundry. My journey into typography began over a decade ago when I discovered the intricate beauty of letterforms and their ability to convey emotion, culture, and meaning.</p>
+            
+            <p class="profile-bio">At Tadi Foundry, I create typefaces that balance aesthetic beauty with functional excellence. Each font is meticulously crafted with attention to detail, ensuring that designers and brands can express themselves with precision and personality.</p>
+          </div>
+          
+          <div class="profile-section">
+            <h3 class="profile-section-title">My Design Philosophy</h3>
+            <p class="profile-bio">I believe typography exists at the intersection of art and communication. My designs aim to respect traditional typographic principles while embracing modern aesthetics and technical requirements. Every curve, angle, and spacing decision is made with both visual harmony and practical legibility in mind.</p>
+          </div>
+          
+          <div class="profile-section">
+            <h3 class="profile-section-title">Expertise</h3>
+            <div class="skill-list">
+              <span class="skill-tag">Typography</span>
+              <span class="skill-tag">Type Design</span>
+              <span class="skill-tag">OpenType Features</span>
+              <span class="skill-tag">Font Engineering</span>
+              <span class="skill-tag">Lettering</span>
+              <span class="skill-tag">Calligraphy</span>
+              <span class="skill-tag">Branding</span>
+              <span class="skill-tag">Editorial Design</span>
+            </div>
+          </div>
+          
+          <div class="profile-section">
+            <h3 class="profile-section-title">Education & Background</h3>
+            <p class="profile-bio">My formal training includes a degree in Graphic Design, followed by specialized studies in type design. I've had the privilege of learning from master typographers and worked with established foundries before launching Tadi Foundry.</p>
+            
+            <p class="profile-bio">When I'm not designing typefaces, you might find me studying historical manuscripts, sketching letterforms, or exploring how typography intersects with different cultures and languages around the world.</p>
+          </div>
+          
+          <div class="profile-section">
+            <h3 class="profile-section-title">Let's Connect</h3>
+            <p class="profile-bio">I'm always open to discussing type design, collaboration opportunities, or custom font projects. Feel free to <a href="contact.html">reach out</a> if you'd like to talk about typography or have questions about my work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile Controls -->
+  <div class="mobile-controls">
+    <button id="sidebarToggle" class="mobile-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span>Menu</span>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-copyright desktop-only">
+        <p>© 2025 Tadi Foundry. All rights reserved.</p>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-link">Instagram</a>
+        <a href="#" class="social-link">Behance</a>
+        <a href="#" class="social-link">Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple script to handle mobile sidebar toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidebar = document.getElementById('sidebar');
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const closeSidebar = document.getElementById('closeSidebar');
+      
+      // Sidebar toggle (mobile)
+      sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+      });
+      
+      // Close sidebar button (for mobile)
+      if (closeSidebar) {
+        closeSidebar.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
